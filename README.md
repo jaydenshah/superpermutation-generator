@@ -6,7 +6,11 @@ This is an algorithm that generates superpermutations. I developed this algorith
 
 - **Double-Step Recursion ($n-2 \to n$):** It relies on calculating the (n-2)th superpermutation to calculate the nth superpermutation.
 - **`sp_index(n, i)`:** A closed-form function that can calculate the first $n(n+1) - 3$ digits of the nth superpermutation by using modular arithmetic:
-  $$sp(n, i) = \begin{cases} n - 1 & \text{if } (i + 2) \bmod (n + 1) = 0 \\ \left(i - \lfloor \frac{i+2}{n+1} \rfloor \right) \bmod (n - 1) & \text{otherwise} \end{cases}$$
+
+```math
+sp(n, i) = \begin{cases} n - 1 & \text{if } (i + 2) \bmod (n + 1) = 0 \\ \left(i - \left\lfloor \frac{i+2}{n+1} \right\rfloor \right) \bmod (n - 1) & \text{otherwise} \end{cases}
+```
+
 - **Amortized O(1) per digit:** Calculates the differences between sequential permutations (which is often only 1 or 2 digits), meaning it can calculate the next digit(s) in amortized O(1) time.
 
 ## Quickstart
